@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<Libro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="libro.xsd">
+
+    <Titulo>El libro de la selva</Titulo>
+
+    <Escritores>
+        <Escritor>Mowgli</Escritor>
+    </Escritores>
+
+    <Ediciones cantidad="67" />
+
+    <Publicacion>2000-01-01</Publicacion>
+
+    <Generos>
+        <Genero>fantástico</Genero>
+        <Genero>histórico</Genero>
+    </Generos>
+
+</Libro>
