@@ -1,0 +1,115 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Grupos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Grupo" minOccurs="2" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="5"/>
+                    <xs:maxLength value="25"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="Generos">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Genero" minOccurs="0" maxOccurs="unbounded">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="rap"/>
+                          <xs:enumeration value="pop"/>
+                          <xs:enumeration value="folk"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+              <xs:element name="MediosContacto" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="Facebook" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="Instagram" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="Twitter" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+              <xs:element name="WebOficial" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="20"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="Integrantes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Integrante" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Edad">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:integer">
+                                <xs:minInclusive value="5"/>
+                                <xs:maxInclusive value="150"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Nombre">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:minLength value="2"/>
+                                <xs:maxLength value="30"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="funcion" use="required">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="vocalista"/>
+                              <xs:enumeration value="bajo"/>
+                              <xs:enumeration value="batería"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:unique name="uniqueIntegranteEdad">
+            <xs:selector xpath="Integrantes/Integrante"/>
+            <xs:field xpath="Edad"/>
+          </xs:unique>
+
+          <xs:unique name="uniqueIntegranteNombre">
+            <xs:selector xpath="Integrantes/Integrante"/>
+            <xs:field xpath="Nombre"/>
+          </xs:unique>
+
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:unique name="uniqueGrupoNombre">
+      <xs:selector xpath="Grupo"/>
+      <xs:field xpath="Nombre"/>
+    </xs:unique>
+  </xs:element>
+
+</xs:schema>

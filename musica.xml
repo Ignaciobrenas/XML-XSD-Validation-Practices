@@ -1,0 +1,56 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<Grupos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="musica.xsd">
+
+  <Grupo>
+    <Nombre>Estopa</Nombre>
+    <Generos>
+      <Genero>pop</Genero>
+    </Generos>
+
+    <MediosContacto>
+      <Email>contacto@estopa.com</Email>
+      <Facebook>https://facebook.com/estopa</Facebook>
+      <Instagram>https://instagram.com/estopa</Instagram>
+      <Twitter>https://twitter.com/estopa</Twitter>
+    </MediosContacto>
+
+    <WebOficial>https://www.estopa.com</WebOficial>
+    <Integrantes>
+
+      <Integrante funcion="vocalista">
+        <Edad>48</Edad>
+        <Nombre>David Muñoz</Nombre>
+      </Integrante>
+
+      <Integrante funcion="bajo">
+        <Edad>50</Edad>
+        <Nombre>Jose Muñoz</Nombre>
+      </Integrante>
+
+    </Integrantes>
+  </Grupo>
+
+  <Grupo>
+    <Nombre>Eminem</Nombre>
+    <Generos>
+      <Genero>rap</Genero>
+    </Generos>
+
+    <MediosContacto>
+      <Email>info@eminem.com</Email>
+      <Facebook>https://facebook.com/eminem</Facebook>
+      <Instagram>https://instagram.com/eminem</Instagram>
+    </MediosContacto>
+
+    <WebOficial>https://www.eminem.com</WebOficial>
+    <Integrantes>
+      <Integrante funcion="vocalista">
+        <Edad>50</Edad>
+        <Nombre>Marshall Mathers</Nombre>
+      </Integrante>
+    </Integrantes>
+    
+  </Grupo>
+
+</Grupos>
