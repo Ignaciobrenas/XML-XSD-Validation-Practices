@@ -1,53 +1,57 @@
-﻿# ðŸ“‘ XML & XSD Schema Validation Practices
+# 📑 XML & XSD Schema Validation Practices
 
 <p align="center">
   <img src="https://img.shields.io/badge/XML-00599C?style=for-the-badge&logo=xml&logoColor=white" alt="XML" />
   <img src="https://img.shields.io/badge/Schema-XSD_1.0-FF6600?style=for-the-badge" alt="XSD" />
-  <img src="https://img.shields.io/badge/Validation-W3C_Standards-047857?style=for-the-badge" alt="W3C" />
-  <img src="https://img.shields.io/badge/Academic-1Âº_DAW_STUCOM-10B981?style=for-the-badge" alt="STUCOM" />
+  <img src="https://img.shields.io/badge/Validation-W3C_Standards-047857?style=for-the-badge" alt="W3C Standards" />
+  <img src="https://img.shields.io/badge/Academic-1º_DAW_STUCOM-10B981?style=for-the-badge" alt="STUCOM" />
 </p>
 
-> ðŸŽ“ **Academic Project Notice:** This project was developed as a laboratory assignment for the **1st year of Web Application Development (DAW)** at **STUCOM Pelai** (Barcelona) within the Markup Languages and Information Management Systems module (LMSGI).
+> 🎓 **Proyecto Académico:** Prácticas de diseño y validación de esquemas XML conforme a los estándares de la W3C para el módulo de **Lenguajes de Marcas y Sistemas de Gestión de Información** en **STUCOM Pelai** (Barcelona), 1º de DAW.
 
 ---
 
-## ðŸ“Œ Overview / DescripciÃ³n General
+## Descripción del Proyecto
 
-### ðŸ‡¬ðŸ‡§ English
-This repository contains structured **XML** datasets and strict **XML Schema Definitions (XSD)** created to practice data structuring, constraints, type definitions, and schema validation according to W3C standards.
-
-### ðŸ‡ªðŸ‡¸ EspaÃ±ol
-Este repositorio recopila prÃ¡cticas de diseÃ±o y validaciÃ³n de documentos **XML** mediante esquemas **XSD (XML Schema Definition)**, orientados a garantizar la integridad, tipos de datos y restricciones estructurales segÃºn los estÃ¡ndares del W3C.
+Este repositorio contiene conjuntos de documentos **XML** y sus correspondientes esquemas de definición **XSD (XML Schema Definition)**. El objetivo es estructurar, tipar y validar información jerárquica asegurando restricciones de longitud, patrones regex, ocurrencias de elementos (`minOccurs`, `maxOccurs`) y tipos de datos estrictos.
 
 ---
 
-## ðŸ“‚ Included Schemas & Datasets
+## 📁 Archivos y Modelos
 
-| Dataset | XML Data File | XSD Schema File | Description |
-| :--- | :--- | :--- | :--- |
-| ðŸ“š **Books Catalog** | libro.xml | libro.xsd | Validates literary catalog metadata: ISBN, titles, authors, publishers, formats, and pricing rules. |
-| ðŸŽµ **Music Catalog** | musica.xml | musica.xsd | Validates musical albums, tracklists, durations, artists, musical genres, and release years. |
+### 📚 Catálogo Bibliográfico (`libro.xml` & `libro.xsd`)
+- **Raíz:** `<libros>`
+- **Elementos:** `<libro>`, con atributos obligatorios de identificación y categorías.
+- **Estructura interna:** `<titulo>`, `<autor>`, `<editorial>`, `<precio>` y `<fechaPublicacion>`.
+- **Restricciones:** Tipos simples con patrones para códigos ISBN, fechas ISO y valores numéricos positivos para precios.
 
----
-
-## ðŸ” Validation Rules Tested
-
-- **Simple & Complex Types:** Usage of xs:simpleType with regex restrictions (xs:pattern) and xs:complexType.
-- **Cardinals & Sequences:** Strict ordering with xs:sequence, minOccurs, and maxOccurs.
-- **Enumerations & Facets:** Allowed value restrictions (xs:enumeration), string lengths, and numeric ranges.
+### 🎵 Catálogo Musical (`musica.xml` & `musica.xsd`)
+- **Raíz:** `<discografia>`
+- **Elementos:** Álbumes, artistas, sellos discográficos y listado ordenado de canciones (`<cancion>`).
+- **Restricciones:** Duraciones en segundos o minutos, atributos de pista numérica y restricciones de año.
 
 ---
 
-## ðŸš€ How to Validate
+## 🚀 Validación de Esquemas
 
-Using xmllint in terminal:
-`ash
+Es posible comprobar la conformidad de los archivos XML con herramientas estándar como `xmllint`:
+
+```bash
+# Validar catálogo de libros
 xmllint --noout --schema libro.xsd libro.xml
+
+# Validar catálogo musical
 xmllint --noout --schema musica.xsd musica.xml
-`
+```
+
+Salida esperada al ser válidos:
+```text
+libro.xml validates
+musica.xml validates
+```
 
 ---
 
-## ðŸ“„ License
+## 👤 Autor
 
-Distributed under the **MIT License**.
+**Ignacio Breñas Muñoz** — 1º DAW, STUCOM Pelai
